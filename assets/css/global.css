@@ -7,6 +7,18 @@ body {
   background-color: #f6f8fc;
 }
 
+header,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span {
+  margin: 0;
+  padding: 0;
+}
+
 ol,
 ul,
 li {
@@ -43,6 +55,7 @@ button {
   color: #ffffff;
   background-color: #6c79db;
   border-radius: 1rem;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 992px) {
