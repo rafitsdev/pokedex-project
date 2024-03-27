@@ -7,16 +7,8 @@ body {
   background-color: #f6f8fc;
 }
 
-header,
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-span {
-  margin: 0;
-  padding: 0;
+body:has(.details-modal.--active) {
+  overflow: hidden;
 }
 
 ol,
@@ -55,7 +47,62 @@ button {
   color: #ffffff;
   background-color: #6c79db;
   border-radius: 1rem;
-  cursor: pointer;
+}
+
+.details-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.details-modal .details-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  opacity: 0;
+}
+
+.details-modal .details-modal__content {
+  width: 100%;
+  max-width: 768px;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  overflow-y: auto;
+  z-index: 1;
+  opacity: 0;
+  position: relative;
+  top: 100px;
+  margin: 0 auto;
+  transform: scale(0);
+}
+
+.details-modal__content, .details-modal__overlay{
+  transition: all 0.2s ease-in-out;
+}
+
+.details-modal.--active {
+  pointer-events: all;
+  visibility: visible;
+}
+
+.details-modal.--active .details-modal__overlay {
+  opacity: 1;
+}
+
+.details-modal.--active .details-modal__content {
+  opacity: 1;
+  transform: scale(1);
 }
 
 @media screen and (min-width: 992px) {
